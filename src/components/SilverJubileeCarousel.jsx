@@ -6,10 +6,10 @@ import {
   Eye, 
   X
 } from 'lucide-react';
-import barathamImg from '../assets/baratham.JPG';
-import groupPhotoImg from '../assets/group photo.JPG';
-import knNeehruImg from '../assets/kn neehru.JPG';
-import staffImg from '../assets/staff.JPG';
+import barathamImg from '../assets/baratham.jpg';
+import groupPhotoImg from '../assets/group photo.jpg';
+import knNeehruImg from '../assets/kn neehru.jpg';
+import staffImg from '../assets/staff.jpg';
 import './SilverJubileeCarousel.css';
 
 export default function SilverJubileeCarousel() {

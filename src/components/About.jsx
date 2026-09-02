@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import carousel1 from '../assets/Carousel1.jpg';
 import carousel2 from '../assets/Carousel2.jpg';
-import school from '../assets/school.jpeg';
+import school from '../assets/School.jpeg';
 import carousel5 from '../assets/Carousel5.jpg';
 import schoolLogo from '../assets/Logo.png';
 import leaders1 from '../assets/corresspondent.jpg';
