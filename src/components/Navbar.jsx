@@ -352,7 +352,7 @@ export default function Navbar({ currentPage = 'contact', onNavigate, onOpenAdmi
               {/* Admin Portal Trigger (Target blank new tab) */}
               <div className="drawer-admin-section">
                 <a 
-                  href="/admin/dashboard"
+                  href={`${import.meta.env.BASE_URL}#/admin/dashboard`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-drawer-admin"

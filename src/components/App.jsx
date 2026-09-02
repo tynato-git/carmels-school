@@ -13,13 +13,15 @@ import silverj from './assets/silverj.jpg';
 import carousel2 from './assets/Carousel2.jpg';
 import carousel3 from './assets/Carousel3.jpg';
 import Admission from './components/Admission';
-import { 
-  ArrowRight, 
-  ChevronLeft, 
+
+import {
+  ArrowRight,
+  ChevronLeft,
   ChevronRight,
   Home as HomeIcon,
   ChevronRight as ChevronRightIcon
 } from 'lucide-react';
+
 import './App.css';
 
 import MatricSchool from './components/MatricSchool';
@@ -31,6 +33,7 @@ import Faq from './components/Faq';
 import Alumni from './components/Alumni';
 import Events from './components/Events';
 import CertificatesSection from './components/CertificatesSection';
+
 import { supabase } from './lib/supabase';
 import { SchoolInfoProvider } from './context/SchoolInfoContext';
 
@@ -39,7 +42,8 @@ const DEFAULT_SLIDES = [
     image: silverj,
     tag: "Welcome to Carmel's School",
     title: "Shaping Leaders of Tomorrow",
-    subtitle: "Carmel's Matriculation Higher Secondary School & ICSE School provides world-class education rooted in strong moral values, academic rigor, and holistic student development.",
+    subtitle:
+      "Carmel's Matriculation Higher Secondary School & ICSE School provides world-class education rooted in strong moral values, academic rigor, and holistic student development.",
     button_text: "Contact Us",
     button_link: "contact"
   },
@@ -47,7 +51,8 @@ const DEFAULT_SLIDES = [
     image: carousel2,
     tag: "Excellence in Education",
     title: "Empowering Young Minds",
-    subtitle: "State-of-the-art facilities, modern laboratories, and dedicated educators fostering creativity, critical thinking, and innovation.",
+    subtitle:
+      "State-of-the-art facilities, modern laboratories, and dedicated educators fostering creativity, critical thinking, and innovation.",
     button_text: "Contact Us",
     button_link: "contact"
   },
@@ -55,19 +60,29 @@ const DEFAULT_SLIDES = [
     image: carousel3,
     tag: "Holistic Development",
     title: "Nurturing Talent & Character",
-    subtitle: "Comprehensive co-curricular activities, leadership clubs, sports programs, and artistic pursuits for complete student growth.",
+    subtitle:
+      "Comprehensive co-curricular activities, leadership clubs, sports programs, and artistic pursuits for complete student growth.",
     button_text: "Contact Us",
     button_link: "contact"
   }
 ];
 
+/* GitHub Pages-safe route reader */
+const getAppPath = () => {
+  const hashPath = window.location.hash.replace(/^#/, '');
+  return (hashPath || window.location.pathname).toLowerCase();
+};
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState(() => {
-  const path = window.location.pathname.toLowerCase();
-  if (path.includes('/admin')) return 'admin';
-  if (path.includes('/admission')) return 'admission';
-  return 'home';
-});
+    const path = getAppPath();
+
+    if (path.includes('/admin')) return 'admin';
+    if (path.includes('/admission')) return 'admission';
+
+    return 'home';
+  });
+
   const [slides, setSlides] = useState(DEFAULT_SLIDES);
   const [mediaSubTab, setMediaSubTab] = useState('blog');
   const [isEnquireModalOpen, setIsEnquireModalOpen] = useState(false);
@@ -89,21 +104,24 @@ export default function App() {
           .order('display_order', { ascending: true })
           .limit(6);
 
-        if (!error) setHomeEvents(data || []);
+        if (!error) {
+          setHomeEvents(data || []);
+        }
       } catch (err) {
-        console.log('Events unavailable; continuing without event showcase');
+        console.log(
+          'Events unavailable; continuing without event showcase'
+        );
       }
     };
 
     fetchHomeEvents();
   }, [currentPage]);
 
-  // Sync browser back/forward buttons with admin/main pages
-    // Sync browser back/forward buttons with admin/main pages
-    // Sync browser back/forward buttons with admin/main pages
+  // Sync browser back/forward and hash navigation
   useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.pathname.toLowerCase();
+    const handleRouteChange = () => {
+      const path = getAppPath();
+
       if (path.includes('/admin')) {
         setCurrentPage('admin');
       } else if (path.includes('/admission')) {
@@ -112,8 +130,14 @@ export default function App() {
         setCurrentPage('home');
       }
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+
+    window.addEventListener('popstate', handleRouteChange);
+    window.addEventListener('hashchange', handleRouteChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+      window.removeEventListener('hashchange', handleRouteChange);
+    };
   }, []);
 
   // Fetch dynamic slides from Supabase carousel_slides table
@@ -136,6 +160,7 @@ export default function App() {
             button_text: item.button_text || 'Contact Us',
             button_link: item.button_link || 'contact'
           }));
+
           setSlides(formatted);
         }
       } catch (err) {
@@ -146,11 +171,12 @@ export default function App() {
     fetchDynamicSlides();
   }, []);
 
-  // Auto trigger Home Popup Banner (poster or toppers announcement) when site is loaded first time in browser session
-   // Trigger Home Popup Banner (poster or toppers announcement) only on actual page load/refresh — not on in-app section navigation
+  // Auto trigger Home Popup Banner
   useEffect(() => {
     if (currentPage === 'admin') return;
+
     setIsToppersModalOpen(true);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -159,32 +185,39 @@ export default function App() {
   };
 
   // Handle page navigation
-    const handleNavigate = (pageName, subTab = null) => {
-  setCurrentPage(pageName);
-  if (pageName === 'admin') {
-    window.history.pushState({}, '', '/admin/dashboard');
-  } else if (pageName === 'admission') {
-    window.history.pushState({}, '', '/admission');
-  } else if (
-    window.location.pathname.toLowerCase().includes('/admin') ||
-    window.location.pathname.toLowerCase().includes('/admission')
-  ) {
-    window.history.pushState({}, '', '/');
-  }
+  const handleNavigate = (pageName, subTab = null) => {
+    setCurrentPage(pageName);
 
-  if (pageName === 'curriculum' && subTab) {
-    setCurriculumSubTab(subTab);
-  } else if (pageName === 'curriculum' && !subTab) {
-    setCurriculumSubTab('curriculum');
-  } else if (subTab) {
-    setMediaSubTab(subTab);
-  } else if (pageName === 'media' && !subTab) {
-    setMediaSubTab('blog');
-  }
-  window.scrollTo(0, 0);
-};
+    /*
+     * GitHub Pages uses static hosting.
+     * Hash routes prevent GitHub Pages from returning 404
+     * for custom application routes.
+     */
+    if (pageName === 'admin') {
+      window.location.hash = '/admin/dashboard';
+    } else if (pageName === 'admission') {
+      window.location.hash = '/admission';
+    } else if (
+      window.location.hash.toLowerCase().includes('/admin') ||
+      window.location.hash.toLowerCase().includes('/admission')
+    ) {
+      window.location.hash = '';
+    }
 
-  // Scroll listener for hero width contraction motion effect on home page
+    if (pageName === 'curriculum' && subTab) {
+      setCurriculumSubTab(subTab);
+    } else if (pageName === 'curriculum' && !subTab) {
+      setCurriculumSubTab('curriculum');
+    } else if (subTab) {
+      setMediaSubTab(subTab);
+    } else if (pageName === 'media' && !subTab) {
+      setMediaSubTab('blog');
+    }
+
+    window.scrollTo(0, 0);
+  };
+
+  // Scroll listener for hero width contraction motion effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 40) {
@@ -193,63 +226,92 @@ export default function App() {
         setIsScrolledHero(false);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  // Automatic slide transition every 2 seconds (2000ms) on home page
+  // Automatic slide transition every 2 seconds
   useEffect(() => {
     if (currentPage !== 'home' || isPaused) return;
 
     const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+      setCurrentSlide(
+        (prevSlide) => (prevSlide + 1) % slides.length
+      );
     }, 2000);
 
     return () => clearInterval(timer);
-  }, [currentPage, isPaused]);
+  }, [currentPage, isPaused, slides.length]);
 
   const handlePrev = () => {
-    setCurrentSlide((prevSlide) => 
+    setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? slides.length - 1 : prevSlide - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    setCurrentSlide(
+      (prevSlide) => (prevSlide + 1) % slides.length
+    );
   };
 
   const getPageTitle = () => {
-    switch(currentPage) {
-      case 'home': return 'Home';
-      case 'about': return 'About Us';
-      case 'campuses': return 'Our Campuses';
-      case 'results': return 'Academic Results & Achievements';
-      case 'media': return 'News & Media';
-      case 'contact': return 'Contact Us';
-      case 'careers': return 'Careers & Faculty Admissions';
-      case 'curriculum': return 'Academics';
-      case 'faq': return 'Frequently Asked Questions (FAQs)';
-      case 'alumni': return 'Carmel’s Global Alumni Network';
-      case 'events': return 'Upcoming Events & Calendar';
-      case 'matric-school': return 'Carmel’s Matriculation Hr. Sec. School';
-      case 'english-school': return 'Carmel’s English School (CBSE / ICSE)';
-      case 'play-school': return 'Carmel’s Play School';
-      default: return 'Carmel’s Group of Schools';
+    switch (currentPage) {
+      case 'home':
+        return 'Home';
+      case 'about':
+        return 'About Us';
+      case 'campuses':
+        return 'Our Campuses';
+      case 'results':
+        return 'Academic Results & Achievements';
+      case 'media':
+        return 'News & Media';
+      case 'contact':
+        return 'Contact Us';
+      case 'careers':
+        return 'Careers & Faculty Admissions';
+      case 'curriculum':
+        return 'Academics';
+      case 'faq':
+        return 'Frequently Asked Questions (FAQs)';
+      case 'alumni':
+        return 'Carmel’s Global Alumni Network';
+      case 'events':
+        return 'Upcoming Events & Calendar';
+      case 'matric-school':
+        return 'Carmel’s Matriculation Hr. Sec. School';
+      case 'english-school':
+        return 'Carmel’s English School (CBSE / ICSE)';
+      case 'play-school':
+        return 'Carmel’s Play School';
+      default:
+        return 'Carmel’s Group of Schools';
     }
   };
 
-    if (currentPage === 'admin') {
+  // Admin page
+  if (currentPage === 'admin') {
     return (
       <SchoolInfoProvider>
-        <AdminDashboard onNavigateHome={() => handleNavigate('home')} />
+        <AdminDashboard
+          onNavigateHome={() => handleNavigate('home')}
+        />
       </SchoolInfoProvider>
     );
   }
 
+  // Admission page
   if (currentPage === 'admission') {
     return (
       <SchoolInfoProvider>
-        <Admission onNavigateHome={() => handleNavigate('home')} />
+        <Admission
+          onNavigateHome={() => handleNavigate('home')}
+        />
       </SchoolInfoProvider>
     );
   }
@@ -257,37 +319,71 @@ export default function App() {
   return (
     <SchoolInfoProvider>
       <div className="app-container">
+
         {/* Floating Header Navbar */}
-        <Navbar 
-          currentPage={currentPage} 
-          onNavigate={handleNavigate} 
+        <Navbar
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
           onOpenAdmin={() => handleNavigate('admin')}
         />
 
-        {/* Conditionally Render Banner: Carousel on Home, Compact Subpage Banner on Other Pages */}
+        {/* Conditionally Render Banner */}
         {currentPage === 'home' ? (
-          <section 
-            className={`carousel-container ${isScrolledHero ? 'hero-scrolled-motion' : ''}`}
+          <section
+            className={`carousel-container ${
+              isScrolledHero ? 'hero-scrolled-motion' : ''
+            }`}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-                style={{ 
-                  backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.65)), url(${slide.image})` 
+                className={`carousel-slide ${
+                  index === currentSlide ? 'active' : ''
+                }`}
+                style={{
+                  backgroundImage: `
+                    linear-gradient(
+                      rgba(15, 23, 42, 0.45),
+                      rgba(15, 23, 42, 0.65)
+                    ),
+                    url(${slide.image})
+                  `
                 }}
               >
                 <div className="carousel-slide-content">
-                  <span className="carousel-tag">{slide.tag}</span>
-                  <h1 className="carousel-title">{slide.title}</h1>
-                  <p className="carousel-subtitle">{slide.subtitle}</p>
+                  <span className="carousel-tag">
+                    {slide.tag}
+                  </span>
+
+                  <h1 className="carousel-title">
+                    {slide.title}
+                  </h1>
+
+                  <p className="carousel-subtitle">
+                    {slide.subtitle}
+                  </p>
+
                   <div className="carousel-btn-group">
-                    <button onClick={() => handleNavigate(slide.button_link || 'contact')} className="btn-hero-primary">
-                      {slide.button_text || 'Contact Us'} <ArrowRight size={18} />
+                    <button
+                      onClick={() =>
+                        handleNavigate(
+                          slide.button_link || 'contact'
+                        )
+                      }
+                      className="btn-hero-primary"
+                    >
+                      {slide.button_text || 'Contact Us'}
+                      <ArrowRight size={18} />
                     </button>
-                    <button onClick={() => handleNavigate('contact')} className="btn-hero-secondary">
+
+                    <button
+                      onClick={() =>
+                        handleNavigate('contact')
+                      }
+                      className="btn-hero-secondary"
+                    >
                       Apply For Admission 2026-27
                     </button>
                   </div>
@@ -295,29 +391,31 @@ export default function App() {
               </div>
             ))}
 
-            {/* Carousel Navigation Arrow Buttons */}
-            <button 
-              className="carousel-arrow carousel-arrow-left" 
+            {/* Carousel Navigation */}
+            <button
+              className="carousel-arrow carousel-arrow-left"
               onClick={handlePrev}
               aria-label="Previous Slide"
             >
               <ChevronLeft size={28} />
             </button>
 
-            <button 
-              className="carousel-arrow carousel-arrow-right" 
+            <button
+              className="carousel-arrow carousel-arrow-right"
               onClick={handleNext}
               aria-label="Next Slide"
             >
               <ChevronRight size={28} />
             </button>
 
-            {/* Carousel Indicator Dots */}
+            {/* Carousel Indicators */}
             <div className="carousel-indicators">
               {slides.map((_, index) => (
                 <button
                   key={index}
-                  className={`indicator-dot ${index === currentSlide ? 'active' : ''}`}
+                  className={`indicator-dot ${
+                    index === currentSlide ? 'active' : ''
+                  }`}
                   onClick={() => setCurrentSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -325,19 +423,41 @@ export default function App() {
             </div>
           </section>
         ) : (
-          /* Subpage Compact Header Banner (For Contact, About, Campuses, etc.) */
-          <section 
+          /* Subpage Compact Header Banner */
+          <section
             className="subpage-header-banner"
-            style={{ backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url(${carousel2})` }}
+            style={{
+              backgroundImage: `
+                linear-gradient(
+                  rgba(15, 23, 42, 0.65),
+                  rgba(15, 23, 42, 0.65)
+                ),
+                url(${carousel2})
+              `
+            }}
           >
             <div className="subpage-banner-content">
-              <h1 className="subpage-banner-title">{getPageTitle()}</h1>
+              <h1 className="subpage-banner-title">
+                {getPageTitle()}
+              </h1>
+
               <div className="subpage-breadcrumb">
-                <button onClick={() => handleNavigate('home')} className="crumb-home-btn">
-                  <HomeIcon size={14} /> Home
+                <button
+                  onClick={() => handleNavigate('home')}
+                  className="crumb-home-btn"
+                >
+                  <HomeIcon size={14} />
+                  Home
                 </button>
-                <ChevronRightIcon size={14} className="crumb-separator" />
-                <span className="crumb-current">{getPageTitle()}</span>
+
+                <ChevronRightIcon
+                  size={14}
+                  className="crumb-separator"
+                />
+
+                <span className="crumb-current">
+                  {getPageTitle()}
+                </span>
               </div>
             </div>
           </section>
@@ -345,50 +465,158 @@ export default function App() {
 
         {/* Main Page Content */}
         <main className="main-body-content">
+
           {currentPage === 'home' && (
             <>
               <Events
                 events={homeEvents}
-                onOpenEnquire={() => setIsEnquireModalOpen(true)}
-                onViewAll={() => handleNavigate('events')}
+                onOpenEnquire={() =>
+                  setIsEnquireModalOpen(true)
+                }
+                onViewAll={() =>
+                  handleNavigate('events')
+                }
                 isHomePage={true}
               />
-              <Campuses onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} isHomePage={true} />
+
+              <Campuses
+                onOpenEnquire={() =>
+                  setIsEnquireModalOpen(true)
+                }
+                onNavigate={handleNavigate}
+                isHomePage={true}
+              />
+
               <CertificatesSection />
             </>
           )}
+
           {currentPage === 'contact' && <Contact />}
-          {currentPage === 'about' && <About onOpenEnquire={() => setIsEnquireModalOpen(true)} />}
-          {currentPage === 'campuses' && <Campuses onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} />}
-          {currentPage === 'results' && <Results onOpenEnquire={() => setIsEnquireModalOpen(true)} />}
-          {currentPage === 'media' && <MediaBlog initialTab={mediaSubTab} />}
-          {currentPage === 'careers' && <Careers onOpenEnquire={() => setIsEnquireModalOpen(true)} />}
-          {currentPage === 'curriculum' && <Curriculum onOpenEnquire={() => setIsEnquireModalOpen(true)} initialSubTab={curriculumSubTab} />}
-          {currentPage === 'faq' && <Faq onOpenEnquire={() => setIsEnquireModalOpen(true)} />}
-          {currentPage === 'alumni' && <Alumni onOpenEnquire={() => setIsEnquireModalOpen(true)} />}
-          {currentPage === 'events' && (
-            <Events events={homeEvents} onOpenEnquire={() => setIsEnquireModalOpen(true)} />
+
+          {currentPage === 'about' && (
+            <About
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+            />
           )}
-          {currentPage === 'matric-school' && <MatricSchool onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} />}
-          {currentPage === 'english-school' && <EnglishSchool onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} />}
-          {currentPage === 'play-school' && <PlaySchool onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} />}
+
+          {currentPage === 'campuses' && (
+            <Campuses
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {currentPage === 'results' && (
+            <Results
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+            />
+          )}
+
+          {currentPage === 'media' && (
+            <MediaBlog initialTab={mediaSubTab} />
+          )}
+
+          {currentPage === 'careers' && (
+            <Careers
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+            />
+          )}
+
+          {currentPage === 'curriculum' && (
+            <Curriculum
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+              initialSubTab={curriculumSubTab}
+            />
+          )}
+
+          {currentPage === 'faq' && (
+            <Faq
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+            />
+          )}
+
+          {currentPage === 'alumni' && (
+            <Alumni
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+            />
+          )}
+
+          {currentPage === 'events' && (
+            <Events
+              events={homeEvents}
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+            />
+          )}
+
+          {currentPage === 'matric-school' && (
+            <MatricSchool
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {currentPage === 'english-school' && (
+            <EnglishSchool
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {currentPage === 'play-school' && (
+            <PlaySchool
+              onOpenEnquire={() =>
+                setIsEnquireModalOpen(true)
+              }
+              onNavigate={handleNavigate}
+            />
+          )}
+
         </main>
 
-        {/* Main Footer Component */}
-        <Footer onOpenEnquire={() => setIsEnquireModalOpen(true)} />
-
-        {/* Global Enquire Modal Popup */}
-        <EnquireModal 
-          isOpen={isEnquireModalOpen} 
-          onClose={() => setIsEnquireModalOpen(false)} 
+        {/* Main Footer */}
+        <Footer
+          onOpenEnquire={() =>
+            setIsEnquireModalOpen(true)
+          }
         />
 
-        {/* First Time Site Load Home Popup Banner (poster or toppers announcement, chosen in Admin) */}
-        <HomeBannerGate 
-          isOpen={isToppersModalOpen} 
+        {/* Global Enquire Modal */}
+        <EnquireModal
+          isOpen={isEnquireModalOpen}
+          onClose={() =>
+            setIsEnquireModalOpen(false)
+          }
+        />
+
+        {/* Home Popup Banner */}
+        <HomeBannerGate
+          isOpen={isToppersModalOpen}
           onClose={handleCloseToppersModal}
-          onViewResults={() => handleNavigate('results')}
+          onViewResults={() =>
+            handleNavigate('results')
+          }
         />
+
       </div>
     </SchoolInfoProvider>
   );
