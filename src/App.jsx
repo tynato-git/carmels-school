@@ -62,8 +62,13 @@ const DEFAULT_SLIDES = [
 ];
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState(() => {
-  const path = window.location.pathname.toLowerCase();
+  const getAppPath = () => {
+  const hashPath = window.location.hash.replace(/^#/, '');
+  return (hashPath || window.location.pathname).toLowerCase();
+};
+
+const [currentPage, setCurrentPage] = useState(() => {
+  const path = getAppPath();
   if (path.includes('/admin')) return 'admin';
   if (path.includes('/admission')) return 'admission';
   return 'home';
@@ -81,19 +86,26 @@ export default function App() {
     // Sync browser back/forward buttons with admin/main pages
     // Sync browser back/forward buttons with admin/main pages
   useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.pathname.toLowerCase();
-      if (path.includes('/admin')) {
-        setCurrentPage('admin');
-      } else if (path.includes('/admission')) {
-        setCurrentPage('admission');
-      } else {
-        setCurrentPage('home');
-      }
-    };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  const handleRouteChange = () => {
+    const path = getAppPath();
+
+    if (path.includes('/admin')) {
+      setCurrentPage('admin');
+    } else if (path.includes('/admission')) {
+      setCurrentPage('admission');
+    } else {
+      setCurrentPage('home');
+    }
+  };
+
+  window.addEventListener('popstate', handleRouteChange);
+  window.addEventListener('hashchange', handleRouteChange);
+
+  return () => {
+    window.removeEventListener('popstate', handleRouteChange);
+    window.removeEventListener('hashchange', handleRouteChange);
+  };
+}, []);
 
   // Fetch dynamic slides from Supabase carousel_slides table
   useEffect(() => {
@@ -141,15 +153,15 @@ export default function App() {
     const handleNavigate = (pageName, subTab = null) => {
   setCurrentPage(pageName);
   if (pageName === 'admin') {
-    window.history.pushState({}, '', '/admin/dashboard');
-  } else if (pageName === 'admission') {
-    window.history.pushState({}, '', '/admission');
-  } else if (
-    window.location.pathname.toLowerCase().includes('/admin') ||
-    window.location.pathname.toLowerCase().includes('/admission')
-  ) {
-    window.history.pushState({}, '', '/');
-  }
+  window.location.hash = '/admin/dashboard';
+} else if (pageName === 'admission') {
+  window.location.hash = '/admission';
+} else if (
+  window.location.hash.toLowerCase().includes('/admin') ||
+  window.location.hash.toLowerCase().includes('/admission')
+) {
+  window.location.hash = '';
+}
 
   if (pageName === 'curriculum' && subTab) {
     setCurriculumSubTab(subTab);
