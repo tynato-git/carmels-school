@@ -36,7 +36,7 @@ import sportsground from '../assets/sportsground.jpg';
 import kg from '../assets/kg.jpg';
 import kgschool from '../assets/kgschool.jpeg';
 import matricschool from '../assets/matricschool.jpeg';
-import school from '../assets/school.jpeg';
+import school from '../assets/School.jpeg';
 import gallery6 from '../assets/cs-lab.jpeg';
 import gallery7 from '../assets/gallery7.jpg';
 import stage from '../assets/stage.jpg';
