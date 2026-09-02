@@ -229,7 +229,7 @@ export default function Navbar({ currentPage = 'contact', onNavigate, onOpenAdmi
                 </li>
               </ul>
  
-              <a href="/admission"
+              <a href={`${import.meta.env.BASE_URL}#/admission`}
               rel="noopener noreferrer"
               className="btn btn-admission desktop-only" >
                 Admission
@@ -311,7 +311,7 @@ export default function Navbar({ currentPage = 'contact', onNavigate, onOpenAdmi
             {/* Action Buttons at Bottom (Matching Reference) */}
             <div className="drawer-action-buttons">
               <a
-                href="/admission"
+                href={`${import.meta.env.BASE_URL}#/admission`}
                 rel="noopener noreferrer"
                 className="btn-drawer-admission"
                 onClick={() => {
