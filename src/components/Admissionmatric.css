@@ -1,0 +1,236 @@
+/* ============================================================
+   AUTO-GROWING TEXTAREAS — no manual drag handle, grows with content
+   ============================================================ */
+.admission-form textarea {
+  resize: none;          /* remove the manual drag-to-resize handle */
+  overflow: hidden;       /* height is driven by JS to fit content */
+  min-height: 44px;
+  width: 100%;
+}
+ 
+/* ============================================================
+   PHOTO AFFIX BOXES (Father / Mother / Student)
+   ============================================================ */
+.photo-affix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+ 
+.photo-affix-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 14px;
+  background-color: var(--bg-offwhite);
+}
+ 
+.photo-affix-preview {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+ 
+.photo-affix-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  opacity: 0.6;
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 8px;
+}
+ 
+.photo-affix-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--primary-red);
+  border: 1px solid var(--primary-red);
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+ 
+.photo-affix-upload-btn:hover {
+  background-color: var(--red-light-bg, #fef2f2);
+}
+ 
+@media (max-width: 640px) {
+  .photo-affix-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+ 
+/* ============================================================
+   DYNAMIC TABLES (Siblings / Previous Study)
+   ============================================================ */
+.dynamic-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+ 
+.dynamic-table-header,
+.dynamic-table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+ 
+.dynamic-table-header span {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--text-main);
+  opacity: 0.7;
+}
+ 
+.dynamic-table-row input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+ 
+.dynamic-row-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #b91c1c;
+  cursor: pointer;
+}
+ 
+.dynamic-row-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--primary-red);
+  background: none;
+  border: 1px dashed var(--primary-red);
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+ 
+@media (max-width: 700px) {
+  .dynamic-table-header { display: none; }
+  .dynamic-table-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "name age" "inst std" "remove remove";
+  }
+}
+ 
+/* ============================================================
+   "HOW DID YOU HEAR ABOUT US" PILLS
+   ============================================================ */
+.heard-about-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+ 
+.heard-about-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+ 
+.heard-about-pill.selected {
+  border-color: var(--primary-red);
+  background-color: var(--red-light-bg, #fef2f2);
+  color: var(--primary-red);
+}
+ 
+.heard-about-pill input {
+  accent-color: var(--primary-red);
+}
+ 
+/* ============================================================
+   SUCCESS STATE
+   ============================================================ */
+.admission-success-state {
+  text-align: center;
+  padding: 40px 20px;
+}
+ 
+.admission-success-state .success-icon {
+  color: #16a34a;
+  margin-bottom: 12px;
+}
+ 
+.admission-success-state h2 {
+  font-family: var(--font-heading);
+  margin-bottom: 10px;
+}
+ 
+.admission-success-state p {
+  max-width: 520px;
+  margin: 0 auto 20px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+ 
+.admission-form-note {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 12px;
+}
+ 
+
+
+
+
+
+
+
+/* Staff ward panel — removes the old two-column layout and its empty block */
+.staff-ward-panel { width: 100%; padding: 16px 18px; border: 1px solid #e5e7eb; border-radius: 15px; background: linear-gradient(135deg, #fff 0%, #fafafa 100%); }
+.staff-ward-toggle { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.staff-ward-kicker { display: block; margin-bottom: 3px; color: var(--primary-red); font-family: var(--font-heading); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.staff-ward-toggle strong { display: block; color: var(--text-main); font-family: var(--font-heading); font-size: .9rem; }
+.staff-ward-toggle p { margin: 4px 0 0; color: var(--text-main); opacity: .6; font-size: .78rem; }
+.staff-ward-switch { display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; color: var(--text-main); font-size: .78rem; font-weight: 700; cursor: pointer; }
+.staff-ward-switch input { position: absolute; opacity: 0; pointer-events: none; }
+.staff-ward-switch-ui { width: 42px; height: 24px; padding: 3px; border-radius: 999px; background: #cbd5e1; transition: background .2s ease; }
+.staff-ward-switch-ui::after { content: ""; display: block; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.15); transition: transform .2s ease; }
+.staff-ward-switch input:checked + .staff-ward-switch-ui { background: var(--primary-red); }
+.staff-ward-switch input:checked + .staff-ward-switch-ui::after { transform: translateX(18px); }
+.staff-ward-name-field { margin: 14px 0 0; padding-top: 14px; border-top: 1px dashed var(--border-color); }
+@media (max-width: 700px) { .staff-ward-toggle { align-items: flex-start; flex-direction: column; } }

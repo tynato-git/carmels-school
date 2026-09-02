@@ -1,0 +1,454 @@
+/* Academic Marks Results Page Styling */
+.results-page-container {
+  background-color: var(--bg-offwhite);
+  color: var(--text-main);
+  padding-bottom: 80px;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 1. Page Header */
+.results-header-section {
+  padding: 50px 0 30px;
+  text-align: center;
+}
+
+.results-header-box {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.results-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.results-main-title {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+}
+
+.results-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 2. Key Academic Mark Stat Cards */
+.stats-cards-section {
+  padding: 30px 0 60px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stat-box-card {
+  background-color: var(--bg-white);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-normal);
+}
+
+.stat-box-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(196, 18, 2, 0.3);
+  box-shadow: 0 12px 30px rgba(196, 18, 2, 0.1);
+}
+
+.stat-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.stat-sub {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* 3. Top Student Mark Rank Holders Grid */
+.achievers-showcase-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.achievers-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.achiever-card {
+  background-color: var(--bg-offwhite);
+  border-radius: 20px;
+  padding: 32px 24px 24px;
+  border: 1px solid var(--border-color);
+  position: relative;
+  text-align: center;
+  transition: var(--transition-normal);
+}
+
+.achiever-card:hover {
+  background-color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.achiever-card.gold {
+  border-top: 4px solid var(--accent-gold);
+}
+
+.achiever-card.silver {
+  border-top: 4px solid #94a3b8;
+}
+
+.achiever-card.bronze {
+  border-top: 4px solid #cd7f32;
+}
+
+
+
+.achiever-photo-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: visible;
+  margin: 0 auto 20px;
+}
+
+.achiever-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-gold);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.2);
+}
+
+.achiever-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f2c59 100%);
+  color: var(--accent-gold);
+  border: 3px solid var(--accent-gold);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.2);
+}
+
+.achiever-rank-badge {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  border: 2px solid #ffffff;
+}
+
+.achiever-details {
+  text-align: center;
+}
+
+.achiever-score-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1e3a8a;
+  padding: 5px 16px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+}
+
+.achiever-score-pill .score-val {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  white-space: nowrap;
+}
+
+.achiever-score-pill .score-percentage {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  padding-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.achiever-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.achiever-stream {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.achiever-centums-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 14px;
+}
+
+.centums-header-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  text-transform: uppercase;
+}
+
+.centum-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* 4. Subject-Wise Centum Table Section */
+.centum-table-section {
+  padding: 60px 0;
+}
+
+.centum-card-wrapper {
+  background-color: var(--bg-white);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.centum-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.centum-table th, .centum-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.centum-table th {
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.subject-name {
+  font-size: 0.98rem;
+  color: var(--text-dark);
+}
+
+.highest-mark-pill {
+  display: inline-block;
+  background-color: #1e3a8a;
+  color: var(--accent-gold);
+  padding: 4px 14px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.centum-count-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #047857;
+}
+
+.check-icon {
+  color: #047857;
+}
+
+.grade-tag {
+  display: inline-block;
+  background-color: var(--bg-offwhite);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* 5. Bottom CTA Card */
+.results-cta-section {
+  padding: 40px 0;
+}
+
+.results-cta-card {
+  background: linear-gradient(135deg, var(--primary-red-dark) 0%, var(--primary-red) 100%);
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 48px 36px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(196, 18, 2, 0.3);
+}
+
+.results-cta-card h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.results-cta-card p {
+  font-size: 1.02rem;
+  opacity: 0.92;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.btn-results-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent-gold);
+  color: #0f172a;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(255, 183, 3, 0.4);
+}
+
+.btn-results-apply:hover {
+  background-color: #ffca28;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.6);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .results-main-title {
+    font-size: 1.8rem;
+  }
+}

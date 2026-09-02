@@ -1,0 +1,29 @@
+/* =========================================================
+   ADDITIONS FOR DYNAMIC ToppersModal (append to ToppersModal.css)
+   Replaces the fixed .xii-grid / .x-grid column counts with a
+   grid that adapts to however many active toppers exist.
+   ========================================================= */
+
+/* Dynamic grid: auto-fits card width, wraps naturally for
+   any topper count from 1 to MAX_TOPPER_CARDS (5) */
+.toppers-grid.dynamic-grid {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+/* Placeholder shown when a topper has no photo_url set */
+.topper-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e2e8f0;
+  color: #94a3b8;
+}
+
+/* Mobile: keep at least 2 per row even with the dynamic grid */
+@media (max-width: 640px) {
+  .toppers-grid.dynamic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

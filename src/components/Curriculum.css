@@ -1,0 +1,242 @@
+/* Curriculum / Academics Page Styling */
+.curriculum-page-container {
+  background-color: var(--bg-offwhite);
+  padding-bottom: 80px;
+}
+
+.curriculum-hero-section {
+  padding: 50px 0 30px;
+}
+
+/* Academics Sub-Tabs (on-page) */
+.academics-subtabs-section {
+  padding: 10px 0 0;
+}
+
+.academics-subtabs-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.academics-subtab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.academics-subtab-btn:hover {
+  color: var(--primary-red);
+}
+
+.academics-subtab-btn.active {
+  color: var(--primary-red);
+  border-bottom-color: var(--primary-red);
+}
+
+.curriculum-stages-section {
+  padding: 40px 0;
+}
+
+.stages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.stage-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.stage-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(30, 58, 138, 0.25);
+}
+
+.stage-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.board-tag {
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.stage-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.stage-card p {
+  font-size: 0.92rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Pillars Grid */
+.curriculum-pillars-section {
+  padding: 50px 0;
+  background-color: #ffffff;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pillar-box {
+  background-color: var(--bg-offwhite);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.pillar-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  opacity: 0.25;
+  margin-bottom: 8px;
+}
+
+.pillar-box h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.pillar-box p {
+  font-size: 0.86rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* Faculty Table */
+.faculty-table-section {
+  padding: 50px 0;
+}
+
+.faculty-table-wrapper {
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.faculty-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.faculty-table thead th {
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: left;
+  padding: 16px 20px;
+}
+
+.faculty-table tbody td {
+  padding: 14px 20px;
+  font-size: 0.92rem;
+  color: var(--text-main);
+  border-top: 1px solid var(--border-color);
+}
+
+.faculty-table tbody tr:hover {
+  background-color: var(--bg-offwhite);
+}
+
+.faculty-loading-state,
+.faculty-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 50px 20px;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.faculty-empty-state svg {
+  opacity: 0.4;
+}
+
+
+/* Faculty Table — Photo column */
+.faculty-table th:nth-child(2),
+.faculty-table td:nth-child(2) {
+  width: 64px;
+  text-align: center;
+}
+
+.faculty-table-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  display: block;
+  margin: 0 auto;
+  background-color: var(--bg-offwhite);
+}
+@media (max-width: 1024px) {
+  .stages-grid {
+    grid-template-columns: 1fr;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}

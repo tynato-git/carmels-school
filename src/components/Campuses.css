@@ -1,0 +1,667 @@
+/* Campuses Page Styling */
+.campuses-page-container {
+  background-color: var(--bg-offwhite);
+  color: var(--text-main);
+  padding-bottom: 80px;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 1. Page Header */
+.campuses-header-section {
+  padding: 50px 0 30px;
+  text-align: center;
+}
+
+.header-text-box {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.campuses-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.campuses-main-title {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+}
+
+.campuses-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 2. Carmel's Group of Schools - 1 Row 3 Columns (Image Top, Content Bottom) */
+.campus-spotlight-section {
+  padding: 30px 0 60px;
+}
+
+.campus-spotlight-section .container {
+  max-width: 1760px;
+  width: 96%;
+}
+
+.schools-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.school-card-vertical {
+  background-color: var(--bg-white);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.school-card-vertical:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(30, 58, 138, 0.14);
+  border-color: rgba(30, 58, 138, 0.25);
+}
+
+.school-card-top-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+.school-card-top-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.school-card-vertical:hover .school-card-top-img {
+  transform: scale(1.08);
+}
+
+.school-card-top-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(196, 18, 2, 0.35);
+  z-index: 2;
+}
+
+.school-card-top-badge.badge-accent {
+  background-color: #1e3a8a;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.35);
+}
+
+.school-card-top-badge.badge-gold {
+  background-color: #d97706;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+}
+
+.school-card-bottom-content {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.location-pill {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.school-card-vtitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.school-card-vdesc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-main);
+  margin-bottom: 18px;
+}
+
+.school-vhighlights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+  margin-top: auto;
+}
+
+.school-vhighlights-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.list-icon {
+  color: var(--primary-red);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.school-vaction-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.school-vaction-row .btn-tour-request {
+  flex: 1;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .schools-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn-tour-request {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(196, 18, 2, 0.25);
+}
+
+.btn-tour-request:hover {
+  background-color: var(--primary-red-dark);
+  transform: translateY(-2px);
+}
+
+.btn-spotlight-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-offwhite);
+  color: var(--text-dark);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.btn-spotlight-maps:hover {
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+@media (max-width: 1024px) {
+  .schools-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. Facilities Section */
+.facilities-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.facilities-header {
+  max-width: 700px;
+  margin: 0 auto 36px;
+}
+
+.facilities-section {
+  padding: 60px 0;
+}
+
+.facilities-section .container {
+  max-width: 1540px;
+  width: 94%;
+}
+
+.facilities-title {
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.facilities-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.category-filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.tab-btn {
+  background-color: var(--bg-offwhite);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background-color: var(--primary-red);
+  color: #ffffff;
+  border-color: var(--primary-red);
+  box-shadow: 0 4px 12px rgba(196, 18, 2, 0.2);
+}
+
+.facilities-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+}
+
+.facility-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.facility-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(196, 18, 2, 0.12);
+  border-color: rgba(196, 18, 2, 0.3);
+}
+
+.facility-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.facility-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.facility-card:hover .facility-card-img {
+  transform: scale(1.08);
+}
+
+.facility-icon-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(196, 18, 2, 0.35);
+  z-index: 2;
+}
+
+.facility-card-content {
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.facility-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.facility-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+.facility-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* 4. Continuous Floating Separated Multi-Card Gallery Marquee */
+.campus-gallery-section {
+  padding: 60px 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery-separated-wrapper {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.gallery-separated-viewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0 20px;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+}
+
+.gallery-separated-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: galleryFloatMarquee 36s linear infinite;
+  will-change: transform;
+}
+
+.gallery-separated-wrapper:hover .gallery-separated-track {
+  animation-play-state: paused;
+}
+
+@keyframes galleryFloatMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-separated-card {
+  flex: 0 0 340px;
+  height: 360px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  background-color: #0f172a;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.gallery-separated-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 18px 40px rgba(196, 18, 2, 0.2);
+}
+
+.separated-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-separated-card:hover .separated-card-img {
+  transform: scale(1.08);
+}
+
+.separated-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+  padding: 24px 20px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.separated-badge {
+  display: inline-block;
+  background-color: var(--primary-red);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.separated-card-overlay h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.separated-card-overlay p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Arrow Navigation Buttons */
+.gallery-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--primary-red);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: var(--transition-fast);
+}
+
+.gallery-nav-arrow.arrow-left {
+  left: 36px;
+}
+
+.gallery-nav-arrow.arrow-right {
+  right: 36px;
+}
+
+.gallery-nav-arrow:hover {
+  background-color: var(--primary-red);
+  color: #ffffff;
+  border-color: var(--primary-red);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* 5. Bottom CTA Banner */
+.campuses-cta-section {
+  padding: 40px 0;
+}
+
+.campuses-cta-card {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f2c59 100%);
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 48px 36px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(30, 58, 138, 0.25);
+}
+
+.campuses-cta-card h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.campuses-cta-card p {
+  font-size: 1.02rem;
+  opacity: 0.9;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.btn-campuses-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent-gold);
+  color: #0f172a;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(255, 183, 3, 0.4);
+}
+
+.btn-campuses-cta:hover {
+  background-color: #ffca28;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.6);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .spotlight-card {
+    grid-template-columns: 1fr;
+  }
+  .gallery-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .spotlight-img {
+    height: 280px;
+  }
+  .spotlight-title {
+    font-size: 1.7rem;
+  }
+  .campuses-main-title {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 1024px) {
+  .facilities-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .facilities-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .facility-card-img-wrapper {
+    height: 130px;
+  }
+  .gallery-nav-arrow {
+    width: 38px;
+    height: 38px;
+  }
+  .gallery-nav-arrow.arrow-left { left: 12px; }
+  .gallery-nav-arrow.arrow-right { right: 12px; }
+  .gallery-separated-card {
+    flex: 0 0 260px;
+    height: 280px;
+  }
+  .campuses-cta-card {
+    padding: 32px 20px;
+  }
+  .campuses-cta-card h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .facilities-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

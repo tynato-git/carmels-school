@@ -1,0 +1,687 @@
+/* App Layout & Hero Showcase Styling */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Automatic Hero Carousel Container */
+.carousel-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0px;
+  overflow: hidden;
+  background-color: #0f172a;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-radius 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              margin 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scroll-driven dynamic width contraction motion */
+.carousel-container.hero-scrolled-motion {
+  width: min(96%, 1600px);
+  margin: 16px auto;
+  height: calc(100vh - 32px);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Individual Carousel Slide */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  padding: 70px 24px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  z-index: 1;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.carousel-slide-content {
+  max-width: 780px;
+  margin: 0 auto;
+  transform: translateY(10px);
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide.active .carousel-slide-content {
+  transform: translateY(0);
+}
+
+.carousel-tag {
+  display: inline-block;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(8px);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.carousel-title {
+  font-family: var(--font-heading);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  letter-spacing: -0.5px;
+}
+
+.carousel-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 auto 34px;
+  max-width: 650px;
+  font-weight: 400;
+}
+
+.carousel-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  background-color: var(--primary-red);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(196, 18, 2, 0.4);
+  text-decoration: none;
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--primary-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(196, 18, 2, 0.5);
+}
+
+.btn-hero-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.carousel-arrow:hover {
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(196, 18, 2, 0.5);
+}
+
+.carousel-arrow-left {
+  left: 24px;
+}
+
+.carousel-arrow-right {
+  right: 24px;
+}
+
+/* Carousel Indicator Dots */
+.carousel-indicators {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.indicator-dot.active {
+  width: 32px;
+  border-radius: 6px;
+  background: var(--primary-red);
+  box-shadow: 0 0 10px rgba(196, 18, 2, 0.8);
+}
+
+/* Compact Subpage Header Banner (For Contact, About, Campuses, etc.) */
+.subpage-header-banner {
+  height: 310px;
+  width: calc(100% - 24px);
+  max-width: 1780px;
+  margin: 16px auto 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 105px 48px 0;
+  color: #ffffff;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.subpage-banner-content {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.subpage-banner-title {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.subpage-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.crumb-home-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+  transition: var(--transition-fast);
+}
+
+.crumb-home-btn:hover {
+  color: var(--accent-gold);
+}
+
+.crumb-separator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.crumb-current {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.subpage-placeholder-container {
+  padding: 60px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.subpage-placeholder-card {
+  background: #ffffff;
+  padding: 48px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+}
+
+.subpage-placeholder-card h2 {
+  font-size: 2rem;
+  color: var(--primary-red);
+  margin-bottom: 12px;
+}
+
+.subpage-placeholder-card p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+.btn-placeholder-contact {
+  background-color: var(--primary-red);
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-placeholder-contact:hover {
+  background-color: var(--primary-red-dark);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 100vh;
+  }
+  .carousel-title {
+    font-size: 2.2rem;
+  }
+  .carousel-subtitle {
+    font-size: 1rem;
+  }
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+  .carousel-arrow-left {
+    left: 12px;
+  }
+  .carousel-arrow-right {
+    right: 12px;
+  }
+}
+
+/* Refined mobile breakpoint - small phones */
+@media (max-width: 480px) {
+  .carousel-slide {
+    padding: 90px 16px 0;
+  }
+  .carousel-title {
+    font-size: 1.7rem;
+    letter-spacing: -0.3px;
+  }
+  .carousel-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+  }
+  .carousel-tag {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+  }
+  .carousel-btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.92rem;
+  }
+  .carousel-indicators {
+    bottom: 16px;
+  }
+
+  /* Subpage banner - was missing mobile handling entirely */
+  .subpage-header-banner {
+    height: 200px;
+    width: calc(100% - 16px);
+    margin: 12px auto 0;
+    border-radius: 16px;
+    padding: 60px 20px 0;
+  }
+  .subpage-banner-title {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+  .subpage-breadcrumb {
+    font-size: 0.8rem;
+  }
+  .subpage-placeholder-container {
+    padding: 32px 16px;
+  }
+  .subpage-placeholder-card {
+    padding: 28px 20px;
+  }
+}
+
+/* Tighten mid-range mobile (481px - 768px), fills the gap before your existing 768px rule */
+@media (max-width: 640px) {
+  .subpage-header-banner {
+    height: 230px;
+    padding: 75px 28px 0;
+  }
+  .subpage-banner-title {
+    font-size: 1.85rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE OPTIMIZATION — HERO / SUBPAGE BANNERS
+   Keeps the desktop design intact and makes the image,
+   content, controls and spacing behave like the hero carousel.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 100%;
+    height: 100svh;
+    min-height: 620px;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .carousel-container.hero-scrolled-motion {
+    width: calc(100% - 16px);
+    height: calc(100svh - 16px);
+    min-height: 560px;
+    margin: 8px auto;
+    border-radius: 18px;
+  }
+
+  .carousel-slide {
+    min-height: 100%;
+    padding: 88px 20px 78px;
+    background-position: center center;
+  }
+
+  .carousel-slide-content {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .carousel-title {
+    font-size: clamp(1.9rem, 7.5vw, 2.45rem);
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+
+  .carousel-subtitle {
+    width: 100%;
+    max-width: 520px;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  .carousel-tag {
+    padding: 7px 15px;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+
+  .carousel-btn-group {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    min-height: 46px;
+    padding: 12px 20px;
+    font-size: 0.92rem;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-arrow-left {
+    left: 10px;
+  }
+
+  .carousel-arrow-right {
+    right: 10px;
+  }
+
+  .carousel-indicators {
+    bottom: 18px;
+    gap: 7px;
+  }
+
+  .indicator-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .indicator-dot.active {
+    width: 25px;
+  }
+
+  /* ---------- Subpage banner: same responsive behavior ---------- */
+
+  .subpage-header-banner {
+    width: calc(100% - 16px);
+    height: clamp(210px, 46svh, 280px);
+    min-height: 210px;
+    margin: 10px auto 0;
+    border-radius: 18px;
+    padding: 72px 22px 28px;
+    background-position: center center;
+  }
+
+  .subpage-banner-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .subpage-banner-title {
+    font-size: clamp(1.55rem, 7vw, 2.15rem);
+    line-height: 1.15;
+    margin-bottom: 9px;
+  }
+
+  .subpage-breadcrumb {
+    flex-wrap: wrap;
+    row-gap: 4px;
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .crumb-home-btn {
+    font-size: 0.82rem;
+  }
+}
+
+/* Phones: optimize for 360–430px screens */
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 100svh;
+    min-height: 580px;
+  }
+
+  .carousel-container.hero-scrolled-motion {
+    width: calc(100% - 12px);
+    height: calc(100svh - 12px);
+    min-height: 540px;
+    margin: 6px auto;
+    border-radius: 16px;
+  }
+
+  .carousel-slide {
+    padding: 84px 16px 72px;
+    background-position: center center;
+  }
+
+  .carousel-slide-content {
+    max-width: 100%;
+  }
+
+  .carousel-title {
+    font-size: clamp(1.7rem, 8vw, 2.05rem);
+    line-height: 1.12;
+  }
+
+  .carousel-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.52;
+    margin-bottom: 20px;
+  }
+
+  .carousel-tag {
+    font-size: 0.67rem;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+  }
+
+  .carousel-btn-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 45px;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-arrow-left {
+    left: 8px;
+  }
+
+  .carousel-arrow-right {
+    right: 8px;
+  }
+
+  .carousel-indicators {
+    bottom: 14px;
+  }
+
+  /* Subpage banners */
+  .subpage-header-banner {
+    width: calc(100% - 12px);
+    height: 210px;
+    min-height: 210px;
+    margin: 8px auto 0;
+    border-radius: 15px;
+    padding: 68px 18px 22px;
+    background-position: center center;
+  }
+
+  .subpage-banner-title {
+    font-size: 1.55rem;
+    line-height: 1.15;
+    margin-bottom: 7px;
+  }
+
+  .subpage-breadcrumb {
+    font-size: 0.76rem;
+    gap: 5px;
+  }
+
+  .crumb-home-btn {
+    font-size: 0.76rem;
+  }
+
+  .subpage-placeholder-container {
+    padding: 30px 14px;
+  }
+
+  .subpage-placeholder-card {
+    padding: 28px 18px;
+    border-radius: 14px;
+  }
+
+  .subpage-placeholder-card h2 {
+    font-size: 1.55rem;
+  }
+
+  .subpage-placeholder-card p {
+    font-size: 0.94rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .carousel-slide {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .carousel-title {
+    font-size: 1.58rem;
+  }
+
+  .carousel-subtitle {
+    font-size: 0.86rem;
+  }
+
+  .subpage-header-banner {
+    width: calc(100% - 10px);
+    height: 195px;
+    min-height: 195px;
+    padding: 62px 15px 18px;
+  }
+
+  .subpage-banner-title {
+    font-size: 1.42rem;
+  }
+}

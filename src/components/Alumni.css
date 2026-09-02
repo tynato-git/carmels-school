@@ -1,0 +1,211 @@
+/* Alumni Page Styling */
+.alumni-page-container {
+  background-color: var(--bg-offwhite);
+  padding-bottom: 80px;
+}
+
+.alumni-hero-section {
+  padding: 50px 0 30px;
+}
+
+.alumni-stories-section {
+  padding: 40px 0;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.story-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #1e3a8a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.story-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 2px;
+}
+
+.batch-pill {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--primary-red);
+}
+
+.story-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+
+.story-quote {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* Alumni Form */
+.alumni-form-section {
+  padding: 40px 0;
+}
+
+.alumni-form-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+}
+
+.alumni-benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.alumni-benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.alumni-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.btn-submit-alumni {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #1e3a8a;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-top: 8px;
+}
+
+.btn-submit-alumni:hover {
+  background-color: #0f2c59;
+}
+
+.alumni-success-msg {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.testimonials-grid {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-video-frame {
+  margin-top: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+}
+
+.testimonial-video-frame iframe,
+.testimonial-video-thumb,
+.testimonial-video-thumb img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+.testimonial-video-thumb {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.testimonial-video-thumb .play-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(196, 18, 2, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1024px) {
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+  .alumni-form-card {
+    grid-template-columns: 1fr;
+  }
+}

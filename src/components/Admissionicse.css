@@ -1,0 +1,331 @@
+/* ============================================================
+   SCHOOL SELECTOR CARDS (used in Admission.jsx)
+   ============================================================ */
+.school-select-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+ 
+.school-select-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 28px 24px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: inherit;
+}
+ 
+.school-select-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-red);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+ 
+.school-select-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background-color: var(--red-light-bg, #fef2f2);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+ 
+.school-select-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+ 
+.school-select-tag {
+  display: inline-block;
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  width: fit-content;
+}
+ 
+.school-select-card p {
+  font-size: 0.86rem;
+  color: var(--text-main);
+  opacity: 0.75;
+  line-height: 1.5;
+  margin: 4px 0 6px;
+}
+ 
+.school-select-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--primary-red);
+  margin-top: auto;
+}
+ 
+@media (max-width: 640px) {
+  .school-select-grid {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+/* ============================================================
+   ICSE FORM — wider container than the basic enquiry form
+   ============================================================ */
+.icse-form-container {
+  max-width: 920px;
+}
+ 
+.admission-block-subheading {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin: 6px 0 12px;
+}
+ 
+.admission-block-hint {
+  font-size: 0.82rem;
+  color: var(--text-main);
+  opacity: 0.65;
+  margin: -8px 0 14px;
+}
+ 
+.admission-grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+ 
+/* Radio pills for Gender */
+.radio-pill-group {
+  display: flex;
+  gap: 10px;
+}
+ 
+.radio-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+ 
+.radio-pill input {
+  accent-color: var(--primary-red);
+  width: 16px;
+  height: 16px;
+}
+ 
+.radio-pill:has(input:checked) {
+  border-color: var(--primary-red);
+  background-color: var(--red-light-bg, #fef2f2);
+}
+ 
+/* ============================================================
+   PARENTS PARTICULARS — two-column layout (Father/Guardian | Mother)
+   ============================================================ */
+.parent-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+ 
+.parent-column {
+  background-color: var(--bg-offwhite);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 18px;
+}
+ 
+.parent-column-heading {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--primary-red);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+ 
+.parent-column .admission-input-group {
+  margin-bottom: 12px;
+}
+ 
+.parent-column .admission-input-group input,
+.parent-column .admission-input-group textarea {
+  background-color: #ffffff;
+}
+ 
+@media (max-width: 700px) {
+  .parent-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+/* ============================================================
+   ENCLOSURES CHECKLIST
+   ============================================================ */
+.enclosures-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+ 
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+ 
+.checklist-item:has(input:checked) {
+  border-color: var(--primary-red);
+  background-color: var(--red-light-bg, #fef2f2);
+}
+ 
+.checklist-item input {
+  margin-top: 2px;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--primary-red);
+  flex-shrink: 0;
+}
+ 
+/* ============================================================
+   DECLARATION
+   ============================================================ */
+.declaration-block {
+  background-color: var(--bg-offwhite);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+}
+ 
+.declaration-list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+ 
+.declaration-agree {
+  background-color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+ 
+.signature-group {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+ 
+.signature-input {
+  font-family: 'Brush Script MT', cursive, var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--primary-red);
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   ICSE / SHARED ADMISSION UX POLISH
+   ============================================================ */
+.icse-form-container { max-width: 980px; }
+.student-photo-panel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 22px;
+  align-items: center;
+  margin: 8px 0 22px;
+  padding: 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--bg-offwhite) 100%);
+}
+
+
+.student-photo-copy { display: flex; align-items: flex-start; gap: 12px; }
+.student-photo-copy strong { display: block; font-family: var(--font-heading); color: var(--text-main); font-size: .95rem; }
+.student-photo-copy p { margin: 4px 0 0; color: var(--text-main); opacity: .62; font-size: .8rem; line-height: 1.45; max-width: 430px; }
+.student-photo-icon { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 11px; background: var(--red-light-bg, #fef2f2); color: var(--primary-red); }
+.student-photo-control { display: flex; align-items: center; gap: 12px; }
+.student-photo-preview, .student-photo-placeholder { width: 78px; height: 96px; border-radius: 10px; object-fit: cover; border: 1px solid var(--border-color); }
+.student-photo-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #ffffff; color: #94a3b8; font-size: .68rem; text-align: center; }
+.student-photo-control .photo-affix-upload-btn { white-space: nowrap; }
+.student-photo-actions { display: flex; flex-direction: column; gap: 7px; align-items: stretch; }
+.student-photo-actions .photo-affix-upload-btn, .student-photo-actions .photo-remove-btn { min-width: 112px; text-align: center; }
+.photo-remove-btn { border: 1px solid #fecaca; background: #fff5f5; color: #b91c1c; border-radius: 9px; padding: 8px 12px; font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; transition: background .2s ease, border-color .2s ease; }
+.photo-remove-btn:hover:not(:disabled) { background: #fee2e2; border-color: #fca5a5; }
+.photo-remove-btn:disabled { opacity: .55; cursor: not-allowed; }
+.staff-ward-panel { margin-top: 6px; padding: 16px 18px; border: 1px solid #e5e7eb; border-radius: 15px; background: linear-gradient(135deg, #fff 0%, #fafafa 100%); }
+.staff-ward-toggle { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.staff-ward-kicker { display: block; margin-bottom: 3px; color: var(--primary-red); font-family: var(--font-heading); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.staff-ward-toggle strong { display: block; color: var(--text-main); font-family: var(--font-heading); font-size: .9rem; }
+.staff-ward-toggle p { margin: 4px 0 0; color: var(--text-main); opacity: .6; font-size: .78rem; }
+.staff-ward-switch { display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; color: var(--text-main); font-size: .78rem; font-weight: 700; cursor: pointer; }
+.staff-ward-switch input { position: absolute; opacity: 0; pointer-events: none; }
+.staff-ward-switch-ui { width: 42px; height: 24px; padding: 3px; border-radius: 999px; background: #cbd5e1; transition: background .2s ease; }
+.staff-ward-switch-ui::after { content: ""; display: block; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.15); transition: transform .2s ease; }
+.staff-ward-switch input:checked + .staff-ward-switch-ui { background: var(--primary-red); }
+.staff-ward-switch input:checked + .staff-ward-switch-ui::after { transform: translateX(18px); }
+.staff-ward-name-field { margin: 14px 0 0; padding-top: 14px; border-top: 1px dashed var(--border-color); }
+@media (max-width: 700px) {
+  .student-photo-panel { grid-template-columns: 1fr; }
+  .student-photo-control { justify-content: flex-start; flex-wrap: wrap; }
+  .staff-ward-toggle { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 640px) {
+  .admission-grid-3col {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,1111 @@
+/* Redesigned About Page Layout */
+.about-redesign-container {
+  background-color: var(--bg-offwhite);
+  color: var(--text-main);
+  padding-bottom: 80px;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* SECTION 1: Top Hero Motto & 3-Image Gallery */
+.about-hero-showcase {
+  padding: 50px 0 30px;
+  text-align: center;
+}
+
+.hero-motto-wrapper {
+  max-width: 850px;
+  margin: 0 auto 40px;
+}
+
+.motto-lead {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 10px;
+}
+
+.motto-heading {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.35;
+}
+
+.motto-heading strong {
+  color: var(--primary-red);
+}
+
+.gallery-three-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.gallery-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.4s ease;
+  background-color: #ffffff;
+}
+
+.gallery-card:hover {
+  transform: none;
+  box-shadow: 0 15px 35px rgba(196, 18, 2, 0.18);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.card-center img {
+  height: 380px;
+}
+
+/* SECTION 2: Carmel's An Introduction (Motto Split Card) */
+.intro-motto-section {
+  padding: 60px 0;
+}
+
+.motto-split-card {
+  background-color: var(--bg-white);
+  border-radius: 24px;
+  padding: 44px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.motto-main-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.motto-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-badge-tag {
+  display: inline-block;
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  margin-bottom: 14px;
+}
+
+.motto-card-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.motto-card-desc {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  margin-bottom: 16px;
+}
+
+.motto-card-desc.highlighted {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.14rem;
+}
+
+.btn-know-more {
+  background-color: var(--accent-gold);
+  color: #0f172a;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(255, 183, 3, 0.4);
+  margin-top: 12px;
+}
+
+.btn-know-more:hover {
+  background-color: #ffca28;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 183, 3, 0.6);
+}
+
+/* SECTION 3: "Our Promise" Honeycomb / Hexagon Hive Layout */
+.our-promise-section {
+  padding: 75px 0;
+  background-color: #ffffff;
+}
+
+.promise-header {
+  max-width: 950px;
+  margin: 0 auto 45px;
+}
+
+.promise-title {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+}
+
+.promise-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Honeycomb Background Glow & Cluster */
+.honeycomb-wrapper-bg {
+  background: radial-gradient(circle, #fef9c3 0%, rgba(254, 249, 195, 0.35) 60%, transparent 80%);
+  padding: 30px 0 50px;
+  position: relative;
+}
+
+.honeycomb-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: -35px;
+}
+
+.hex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hex-row-top {
+  margin-bottom: -36px;
+  z-index: 2;
+}
+
+.hex-row-middle {
+  z-index: 3;
+}
+
+.hex-row-bottom {
+  margin-top: -36px;
+  z-index: 2;
+}
+
+/* Pointed Vertical Hexagon Cards */
+.hex-card {
+  width: 290px;
+  height: 255px;
+  background-color: #f1f5f9;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  position: relative;
+}
+
+.hex-card:hover {
+  transform: scale(1.05);
+  background-color: #e2e8f0;
+  z-index: 10;
+}
+
+.hex-card-inner {
+  padding: 24px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 250px;
+}
+
+.hex-icon {
+  color: #047857;
+  margin-bottom: 8px;
+}
+
+.hex-card h4 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #047857;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.hex-card p {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Central Core Pointed Hexagon Node */
+.hex-core-card {
+  width: 300px;
+  height: 265px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f2c59 100%);
+  color: #ffffff;
+  box-shadow: 0 15px 35px rgba(30, 58, 138, 0.35);
+  z-index: 5;
+}
+
+.hex-core-card:hover {
+  transform: scale(1.06);
+  background: linear-gradient(135deg, #1e3a8a 0%, var(--primary-red) 100%);
+}
+
+.hex-core-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hex-core-logo {
+  height: 52px;
+  width: auto;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.hex-core-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.hex-core-card span {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.hex-logo {
+  height: 54px;
+  width: auto;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+
+.hex-core-node h3 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.hex-core-node span {
+  font-size: 0.88rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* SECTION 4: Vision & Mission Banner Section */
+.vision-mission-banner-section {
+  padding: 65px 0;
+}
+
+.vision-mission-banner-card {
+  background-color: #dcfce7;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.vm-banner-image img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.vm-banner-text-side {
+  padding: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.vm-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.vm-badge-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.vm-banner-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+
+.vm-banner-desc {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: #1e293b;
+  font-style: italic;
+  padding-left: 62px;
+}
+
+/* SECTION 5: Management & Correspondent Leadership */
+.management-leadership-section {
+  padding: 75px 0;
+}
+
+.management-header {
+  max-width: 950px;
+  margin: 0 auto 50px;
+}
+
+.management-main-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.management-quote {
+  display: block;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 14px;
+}
+
+.management-subdesc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.management-tagline {
+  color: #1e3a8a;
+  font-size: 1.12rem;
+}
+
+/* Featured Correspondent Card */
+.correspondent-feature-card {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.correspondent-image-holder {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 480px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.correspondent-bg-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Green/Crimson Overlay Text Card */
+.correspondent-overlay-box {
+  position: absolute;
+  top: 50%;
+  left: 36px;
+  transform: translateY(-50%);
+  width: 460px;
+  max-width: calc(100% - 72px);
+  background-color: #064e3b;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 34px 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.overlay-role-tag {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+}
+
+.overlay-name {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 4px 0 10px;
+}
+
+.overlay-quote-line {
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 12px;
+}
+
+.overlay-paragraph {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  opacity: 0.92;
+  margin-bottom: 12px;
+}
+
+.btn-overlay-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--accent-gold);
+  color: #0f172a;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-top: 6px;
+}
+
+.btn-overlay-readmore:hover {
+  background-color: #ffca28;
+}
+
+/* Leadership Cards Grid */
+.leadership-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.leader-card {
+  background-color: var(--bg-white);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-fast);
+}
+
+.leader-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.leader-photo-box {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--primary-red);
+  margin: 0 auto 18px;
+  box-shadow: 0 6px 18px rgba(196, 18, 2, 0.15);
+}
+
+.leader-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transform: scale(1.16);
+  transition: transform 0.4s ease;
+}
+
+.leader-card:hover .leader-img {
+  transform: scale(1.23);
+}
+
+.leader-role {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+
+.leader-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.leader-bio {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* SECTION 6: Higher Secondary Groups Table & Docs */
+.academic-groups-section {
+  padding: 60px 0;
+}
+
+.groups-card-box {
+  background-color: var(--bg-white);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+}
+
+.groups-box-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+.groups-box-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  margin-bottom: 32px;
+}
+
+.groups-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.groups-table th, .groups-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.groups-table th {
+  background-color: var(--red-light-bg);
+  color: var(--primary-red);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.table-group-pill {
+  display: inline-block;
+  background-color: #1e3a8a;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.table-subject-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.table-medium-tag {
+  background-color: var(--bg-offwhite);
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.admission-docs-banner {
+  background-color: var(--red-light-bg);
+  border-radius: 14px;
+  padding: 24px 28px;
+  border: 1px dashed var(--primary-red);
+}
+
+.admission-docs-banner h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 12px;
+}
+
+.docs-list-inline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docs-list-inline li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .gallery-three-row {
+    grid-template-columns: 1fr;
+  }
+  .motto-split-card {
+    grid-template-columns: 1fr;
+  }
+  .hexagon-hive-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vision-mission-banner-card {
+    grid-template-columns: 1fr;
+  }
+  .leadership-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .correspondent-overlay-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    margin-top: -60px;
+  }
+  .correspondent-image-holder {
+    height: auto;
+  }
+  .correspondent-bg-photo {
+    height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hexagon-hive-grid {
+    grid-template-columns: 1fr;
+  }
+  .motto-heading {
+    font-size: 1.6rem;
+  }
+  .motto-card-title {
+    font-size: 1.6rem;
+  }
+  .promise-title {
+    font-size: 1.8rem;
+  }
+  .vm-banner-text-side {
+    padding: 24px;
+  }
+}
+/* =========================================================
+   ABOUT PAGE — MOBILE OPTIMIZATION
+   SECTION 2: CAMPUS / INTRO IMAGE
+   SECTION 3: OUR PROMISE
+   ========================================================= */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+
+  /* ---------- Campus / Introduction ---------- */
+
+  .intro-motto-section {
+    padding: 42px 0;
+  }
+
+  .motto-split-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .motto-main-img {
+    width: 100%;
+    height: 360px;
+    min-height: 0;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .motto-content-col {
+    width: 100%;
+  }
+
+  .motto-card-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .motto-card-desc {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* ---------- Our Promise ---------- */
+
+  .our-promise-section {
+    padding: 52px 0;
+  }
+
+  .promise-header {
+    margin-bottom: 30px;
+    padding: 0 12px;
+  }
+
+  .promise-title {
+    font-size: 2.15rem;
+    line-height: 1.2;
+  }
+
+  .promise-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .honeycomb-wrapper-bg {
+    padding: 20px 12px 36px;
+  }
+
+  .honeycomb-cluster {
+    width: 100%;
+    max-width: 720px;
+    gap: 0;
+  }
+
+  .hex-row {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hex-card {
+    width: min(30vw, 250px);
+    height: min(27vw, 220px);
+  }
+
+  .hex-core-card {
+    width: min(31vw, 260px);
+    height: min(28vw, 225px);
+  }
+
+  .hex-card-inner {
+    padding: 18px 14px;
+    max-width: 90%;
+  }
+
+  .hex-card h4 {
+    font-size: 0.98rem;
+  }
+
+  .hex-card p {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+}
+
+
+/* =========================================================
+   PHONES
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  /* ---------- Global About container ---------- */
+
+  .about-redesign-container {
+    padding-bottom: 40px;
+    overflow-x: hidden;
+  }
+
+  .about-redesign-container .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ---------- Campus / Introduction Image ---------- */
+
+  .intro-motto-section {
+    padding: 32px 0;
+  }
+
+  .motto-split-card {
+    width: 100%;
+    padding: 18px;
+    gap: 22px;
+    border-radius: 18px;
+  }
+
+  .motto-main-img {
+    width: 100%;
+    height: 245px;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+
+  .motto-content-col {
+    align-items: flex-start;
+  }
+
+  .section-badge-tag {
+    font-size: 0.76rem;
+    padding: 7px 12px;
+    margin-bottom: 10px;
+  }
+
+  .motto-card-title {
+    font-size: 1.65rem;
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+
+  .motto-card-desc,
+  .motto-card-desc.highlighted {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .btn-know-more {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.92rem;
+    margin-top: 6px;
+  }
+
+
+  /* =======================================================
+     OUR PROMISE — MOBILE STACK
+     ======================================================= */
+
+  .our-promise-section {
+    padding: 40px 0;
+  }
+
+  .promise-header {
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+
+  .promise-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .promise-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .honeycomb-wrapper-bg {
+    padding: 14px 8px 28px;
+    background: radial-gradient(
+      circle,
+      #fef9c3 0%,
+      rgba(254, 249, 195, 0.28) 55%,
+      transparent 78%
+    );
+  }
+
+  /*
+     IMPORTANT:
+     The desktop honeycomb is 3 rows of overlapping hexagons.
+     On a phone that becomes too wide and causes clipping.
+     We therefore turn each row into a vertical stack.
+  */
+
+  .honeycomb-cluster {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hex-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .hex-row-top,
+  .hex-row-bottom {
+    margin: 0;
+  }
+
+  .hex-card,
+  .hex-core-card {
+    width: min(88vw, 320px);
+    height: 235px;
+    flex: 0 0 auto;
+  }
+
+  .hex-core-card {
+    height: 245px;
+  }
+
+  .hex-card-inner {
+    width: 100%;
+    max-width: 250px;
+    padding: 20px 16px;
+  }
+
+  .hex-icon {
+    margin-bottom: 7px;
+  }
+
+  .hex-card h4 {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .hex-card p {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .hex-core-inner {
+    padding: 18px;
+    width: 100%;
+  }
+
+  .hex-core-logo {
+    height: 44px;
+    margin-bottom: 8px;
+  }
+
+  .hex-core-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .hex-core-card span {
+    font-size: 0.78rem;
+  }
+
+  /* Disable large hover enlargement on touch screens */
+  .hex-card:hover,
+  .hex-core-card:hover {
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .about-redesign-container .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .motto-split-card {
+    padding: 14px;
+  }
+
+  .motto-main-img {
+    height: 215px;
+  }
+
+  .motto-card-title {
+    font-size: 1.48rem;
+  }
+
+  .motto-card-desc,
+  .motto-card-desc.highlighted {
+    font-size: 0.9rem;
+  }
+
+  .promise-title {
+    font-size: 1.55rem;
+  }
+
+  .promise-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .hex-card,
+  .hex-core-card {
+    width: min(92vw, 310px);
+    height: 220px;
+  }
+
+  .hex-core-card {
+    height: 230px;
+  }
+}
