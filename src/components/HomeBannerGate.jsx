@@ -6,7 +6,12 @@ import PosterBanner from './PosterBanner';
 // Controlled component: parent (App.jsx) owns isOpen/onClose + sessionStorage
 // gating, exactly like it did for <ToppersModal>. Shows all active poster
 // banners as a mini carousel, or falls back to the toppers announcement.
-export default function HomeBannerGate({ isOpen, onClose, onViewResults }) {
+export default function HomeBannerGate({
+  isOpen,
+  onClose,
+  onViewResults,
+  onNavigate
+}) {
   const [rows, setRows] = useState([]);
   const [checked, setChecked] = useState(false);
 
@@ -41,5 +46,11 @@ export default function HomeBannerGate({ isOpen, onClose, onViewResults }) {
     return <ToppersModal isOpen={isOpen} onClose={onClose} onViewResults={onViewResults} />;
   }
 
-  return <PosterBanner banners={posters} onClose={onClose} />;
+  return (
+  <PosterBanner
+    banners={posters}
+    onClose={onClose}
+    onNavigate={onNavigate}
+  />
+);
 }
