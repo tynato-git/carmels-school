@@ -114,6 +114,8 @@
     );
 }
 
+
+
 /*
  * Large decorative gold/orange curved visual
  */
@@ -299,6 +301,50 @@
 
   position: relative;
   z-index: 2;
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD SCROLL FIX — DESKTOP
+   Keep sidebar and main content independently scrollable.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  .admin-dashboard-app {
+    height: 100vh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .admin-topbar {
+    flex: 0 0 68px;
+    position: relative;
+  }
+
+  .admin-dashboard-layout {
+    flex: 1 1 auto;
+    height: calc(100vh - 68px);
+    min-height: 0;
+    overflow: hidden;
+    align-items: stretch;
+  }
+
+  .admin-sidebar {
+    position: relative;
+    top: auto;
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .admin-main-view {
+    flex: 1 1 auto;
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 }
 
 
