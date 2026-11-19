@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Contact from './components/Contact';
-import About from './components/About';
-import Campuses from './components/Campuses';
-import Results from './components/Results';
-import MediaBlog from './components/MediaBlog';
 import Footer from './components/Footer';
 import EnquireModal from './components/EnquireModal';
 import HomeBannerGate from './components/HomeBannerGate';
-import AdminDashboard from './components/AdminDashboard';
 import silverj from './assets/silverj.jpg';
 import carousel2 from './assets/Carousel2.jpg';
 import carousel3 from './assets/Carousel3.jpg';
-import Admission from './components/Admission';
 import { 
   ArrowRight, 
   ChevronLeft, 
@@ -21,14 +15,19 @@ import {
   ChevronRight as ChevronRightIcon
 } from 'lucide-react';
 import './App.css';
-
-import MatricSchool from './components/MatricSchool';
-import EnglishSchool from './components/EnglishSchool';
-import PlaySchool from './components/PlaySchool';
-import Careers from './components/Careers';
-import Curriculum from './components/Curriculum';
-import Faq from './components/Faq';
-import Alumni from './components/Alumni';
+const About = lazy(() => import('./components/About'));
+const Campuses = lazy(() => import('./components/Campuses'));
+const Results = lazy(() => import('./components/Results'));
+const MediaBlog = lazy(() => import('./components/MediaBlog'));
+const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
+const Admission = lazy(() => import('./components/Admission'));
+const MatricSchool = lazy(() => import('./components/MatricSchool'));
+const EnglishSchool = lazy(() => import('./components/EnglishSchool'));
+const PlaySchool = lazy(() => import('./components/PlaySchool'));
+const Careers = lazy(() => import('./components/Careers'));
+const Curriculum = lazy(() => import('./components/Curriculum'));
+const Faq = lazy(() => import('./components/Faq'));
+const Alumni = lazy(() => import('./components/Alumni'));
 import Events from './components/Events';
 import CertificatesSection from './components/CertificatesSection';
 import { supabase } from './lib/supabase';
@@ -223,27 +222,35 @@ const [currentPage, setCurrentPage] = useState(() => {
       case 'alumni': return 'Carmel’s Global Alumni Network';
       case 'events': return 'Upcoming Events & Calendar';
       case 'matric-school': return 'Carmel’s Matriculation Hr. Sec. School';
-      case 'english-school': return 'Carmel’s English School (CBSE / ICSE)';
+      case 'english-school': return 'Carmel’s English School (ICSE)';
       case 'play-school': return 'Carmel’s Play School';
       default: return 'Carmel’s Group of Schools';
     }
   };
 
-    if (currentPage === 'admin') {
-    return (
-      <SchoolInfoProvider>
-        <AdminDashboard onNavigateHome={() => handleNavigate('home')} />
-      </SchoolInfoProvider>
-    );
-  }
+if (currentPage === 'admin') {
+  return (
+    <SchoolInfoProvider>
+      <Suspense fallback={<div className="page-loading">Loading...</div>}>
+        <AdminDashboard
+          onNavigateHome={() => handleNavigate('home')}
+        />
+      </Suspense>
+    </SchoolInfoProvider>
+  );
+}
 
-  if (currentPage === 'admission') {
-    return (
-      <SchoolInfoProvider>
-        <Admission onNavigateHome={() => handleNavigate('home')} />
-      </SchoolInfoProvider>
-    );
-  }
+if (currentPage === 'admission') {
+  return (
+    <SchoolInfoProvider>
+      <Suspense fallback={<div className="page-loading">Loading...</div>}>
+        <Admission
+          onNavigateHome={() => handleNavigate('home')}
+        />
+      </Suspense>
+    </SchoolInfoProvider>
+  );
+}
 
   return (
     <SchoolInfoProvider>
@@ -336,7 +343,9 @@ const [currentPage, setCurrentPage] = useState(() => {
 
         {/* Main Page Content */}
         <main className="main-body-content">
-          {currentPage === 'home' && (
+            <Suspense fallback={<div className="page-loading">Loading...</div>}>
+
+            {currentPage === 'home' && (
             <>
               <Campuses onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} isHomePage={true} />
               <CertificatesSection />
@@ -355,6 +364,7 @@ const [currentPage, setCurrentPage] = useState(() => {
           {currentPage === 'matric-school' && <MatricSchool onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} />}
           {currentPage === 'english-school' && <EnglishSchool onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} />}
           {currentPage === 'play-school' && <PlaySchool onOpenEnquire={() => setIsEnquireModalOpen(true)} onNavigate={handleNavigate} />}
+              </Suspense>
         </main>
 
         {/* Main Footer Component */}

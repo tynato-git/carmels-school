@@ -36,7 +36,7 @@ const CLASS_OPTIONS = [
  
 const currentYear = new Date().getFullYear();
 const DEFAULT_ACADEMIC_YEAR = `${currentYear}-${String(currentYear + 1).slice(-2)}`;
- 
+
 const HEARD_ABOUT_OPTIONS = ['Newspaper', 'Website', 'Magazine', 'Friends', 'Teachers', 'Pamphlets'];
  
 const INITIAL_FORM = {
@@ -145,7 +145,7 @@ const normalizeIndianMobile = (value) => {
     return digits.slice(2);
   }
 
-  if (digits.length === 10 && /^[6-9]\d{9}$/.test(digits)) {
+   if (digits.length === 10 && /^[6-9]\d{9}$/.test(digits)) {
     return digits;
   }
 
@@ -803,7 +803,6 @@ const motherMobile = form.mother_mobile.trim() || null;
                       <select id="mat-board" className="admission-select" value={form.previous_board} onChange={set('previous_board')}>
                         <option value="">Select</option>
                         <option value="State Board">State Board</option>
-                        <option value="CBSE">CBSE</option>
                         <option value="ICSE">ICSE</option>
                         <option value="Other">Other</option>
                       </select>

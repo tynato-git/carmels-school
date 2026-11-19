@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Contact from './components/Contact';
-import About from './components/About';
-import Campuses from './components/Campuses';
-import Results from './components/Results';
-import MediaBlog from './components/MediaBlog';
-import Footer from './components/Footer';
-import EnquireModal from './components/EnquireModal';
-import HomeBannerGate from './components/HomeBannerGate';
-import AdminDashboard from './components/AdminDashboard';
+const About = lazy(() => import('./components/About'));
+const Campuses = lazy(() => import('./components/Campuses'));
+const Results = lazy(() => import('./components/Results'));
+const MediaBlog = lazy(() => import('./components/MediaBlog'));
+const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
+const Admission = lazy(() => import('./components/Admission'));
+const MatricSchool = lazy(() => import('./components/MatricSchool'));
+const EnglishSchool = lazy(() => import('./components/EnglishSchool'));
+const PlaySchool = lazy(() => import('./components/PlaySchool'));
+const Careers = lazy(() => import('./components/Careers'));
+const Curriculum = lazy(() => import('./components/Curriculum'));
+const Faq = lazy(() => import('./components/Faq'));
+const Alumni = lazy(() => import('./components/Alumni'));
 import silverj from './assets/silverj.jpg';
 import carousel2 from './assets/Carousel2.jpg';
 import carousel3 from './assets/Carousel3.jpg';
@@ -23,14 +28,6 @@ import {
 } from 'lucide-react';
 
 import './App.css';
-
-import MatricSchool from './components/MatricSchool';
-import EnglishSchool from './components/EnglishSchool';
-import PlaySchool from './components/PlaySchool';
-import Careers from './components/Careers';
-import Curriculum from './components/Curriculum';
-import Faq from './components/Faq';
-import Alumni from './components/Alumni';
 import Events from './components/Events';
 import CertificatesSection from './components/CertificatesSection';
 
@@ -286,7 +283,7 @@ export default function App() {
       case 'matric-school':
         return 'Carmel’s Matriculation Hr. Sec. School';
       case 'english-school':
-        return 'Carmel’s English School (CBSE / ICSE)';
+        return 'Carmel’s English School (ICSE)';
       case 'play-school':
         return 'Carmel’s Play School';
       default:
@@ -296,25 +293,29 @@ export default function App() {
 
   // Admin page
   if (currentPage === 'admin') {
-    return (
-      <SchoolInfoProvider>
+  return (
+    <SchoolInfoProvider>
+      <Suspense fallback={<div className="page-loading">Loading...</div>}>
         <AdminDashboard
           onNavigateHome={() => handleNavigate('home')}
         />
-      </SchoolInfoProvider>
-    );
-  }
+      </Suspense>
+    </SchoolInfoProvider>
+  );
+}
 
   // Admission page
   if (currentPage === 'admission') {
-    return (
-      <SchoolInfoProvider>
+  return (
+    <SchoolInfoProvider>
+      <Suspense fallback={<div className="page-loading">Loading...</div>}>
         <Admission
           onNavigateHome={() => handleNavigate('home')}
         />
-      </SchoolInfoProvider>
-    );
-  }
+      </Suspense>
+    </SchoolInfoProvider>
+  );
+}
 
   return (
     <SchoolInfoProvider>
@@ -465,6 +466,7 @@ export default function App() {
 
         {/* Main Page Content */}
         <main className="main-body-content">
+          <Suspense fallback={<div className="page-loading">Loading...</div>}>
 
           {currentPage === 'home' && (
             <>
@@ -590,7 +592,7 @@ export default function App() {
               onNavigate={handleNavigate}
             />
           )}
-
+          </Suspense>
         </main>
 
         {/* Main Footer */}
@@ -615,6 +617,7 @@ export default function App() {
           onViewResults={() =>
             handleNavigate('results')
           }
+          onNavigate={handleNavigate}
         />
 
       </div>
