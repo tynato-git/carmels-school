@@ -82,7 +82,7 @@ export default function Curriculum({ onOpenEnquire, initialSubTab = 'curriculum'
     },
     {
       level: "High School & Hr. Sec. (Std IX to XII)",
-      board: "TN State Board, CBSE & ICSE Streams",
+      board: "TN State Board,  ICSE Streams",
       desc: "Specialized academic streams (Physics, Chemistry, Maths, Biology, Computer Science, Commerce, Accountancy) with intensive board exam and competitive entrance guidance.",
       icon: <GraduationCap size={24} />
     }

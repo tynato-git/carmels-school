@@ -4367,7 +4367,7 @@ const handleToggleFacultyActive = async (f) => {
                 <textarea
                   id="job-req"
                   rows={2}
-                  placeholder="e.g. M.Sc / M.A with B.Ed, good English communication, prior CBSE / Matric experience..."
+                  placeholder="e.g. M.Sc / M.A with B.Ed, good English communication, prior ICSE / Matric experience..."
                   value={jobForm.requirements}
                   onChange={(e) => setJobForm({ ...jobForm, requirements: e.target.value })}
                 />

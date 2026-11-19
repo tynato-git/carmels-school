@@ -25,7 +25,7 @@ import './EnglishSchool.css';
 
 export default function EnglishSchool({ onOpenEnquire, onNavigate }) {
   const highlights = [
-    { title: "CBSE & ICSE Standards", icon: <Award size={22} />, desc: "Rigorous curriculum emphasizing analytical reasoning, literature, and global competencies." },
+    { title: "ICSE Standards", icon: <Award size={22} />, desc: "Rigorous curriculum emphasizing analytical reasoning, literature, and global competencies." },
     { title: "Smart Interactive Classrooms", icon: <BookOpen size={22} />, desc: "Digital interactive smart boards, multimedia modules, and visual learning aids." },
     { title: "English Fluency & Debating", icon: <Globe size={22} />, desc: "Dedicated phonics, public speaking, model United Nations, and literature clubs." },
     { title: "STEM & Coding Labs", icon: <Cpu size={22} />, desc: "Computer education, coding workshops, and practical scientific experimentation." },
@@ -39,21 +39,21 @@ export default function EnglishSchool({ onOpenEnquire, onNavigate }) {
         <div className="container">
           <div className="school-hero-card">
             <div className="school-hero-img-col">
-              <img src={school} alt="Carmel's English School CBSE / ICSE" className="school-hero-img" />
+              <img src={school} alt="Carmel's English School ICSE" className="school-hero-img" />
               <span className="school-badge-pill badge-accent">
-                <BookOpen size={16} /> CBSE & ICSE Curricula
+                <BookOpen size={16} /> ICSE Curricula
               </span>
             </div>
             <div className="school-hero-info-col">
               <span className="location-pill">WORAIYUR, TRICHY</span>
-              <h1 className="school-main-heading">Carmel’s English School (CBSE / ICSE)</h1>
+              <h1 className="school-main-heading">Carmel’s English School (ICSE)</h1>
               <p className="school-lead-text">
                 Fostering global educational standards with emphasis on English communication, critical thinking, interactive smart classrooms, and leadership development.
               </p>
               
               <div className="school-stats-row">
                 <div className="stat-box">
-                  <span className="stat-number">CBSE/ICSE</span>
+                  <span className="stat-number">ICSE</span>
                   <span className="stat-label">National Curricula</span>
                 </div>
                 <div className="stat-box">

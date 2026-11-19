@@ -32,7 +32,7 @@ export default function Faq({ onOpenEnquire }) {
     {
       category: 'academics',
       question: "Which educational boards are offered at Carmel's Group of Schools?",
-      answer: "Carmel's offers both Tamil Nadu State Board (Matriculation Hr. Sec. Stream) and Central Boards (CBSE & ICSE), covering pre-primary Montessori through Std XII science and commerce groups."
+      answer: "Carmel's offers both Tamil Nadu State Board (Matriculation Hr. Sec. Stream) and Central Boards (ICSE), covering pre-primary Montessori through Std XII science and commerce groups."
     },
     {
       category: 'academics',

@@ -111,7 +111,7 @@ export default function Navbar({ currentPage = 'contact', onNavigate, onOpenAdmi
                         <GraduationCap size={15} className="menu-icon" /> Carmel’s Matriculation Hr. Sec. School
                       </a>
                       <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('english-school'); }}>
-                        <BookOpen size={15} className="menu-icon" /> Carmel’s English School (CBSE / ICSE)
+                        <BookOpen size={15} className="menu-icon" /> Carmel’s English School (ICSE)
                       </a>
                       <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('play-school'); }}>
                         <Sparkles size={15} className="menu-icon" /> Carmel’s Play School

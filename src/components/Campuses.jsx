@@ -288,22 +288,22 @@ export default function Campuses({ onOpenEnquire, onNavigate, isHomePage = false
               </div>
             </div>
 
-            {/* Card 2: Carmel's English School (CBSE / ICSE) */}
+            {/* Card 2: Carmel's English School ( ICSE) */}
             <div className="school-card-vertical">
               <div className="school-card-top-img-wrapper" onClick={() => { if (onNavigate) onNavigate('english-school'); }} style={{ cursor: 'pointer' }}>
-                <img src={school} alt="Carmel's English School (CBSE / ICSE)" className="school-card-top-img" />
+                <img src={school} alt="Carmel's English School (ICSE)" className="school-card-top-img" />
                 <span className="school-card-top-badge badge-accent">
-                  <BookOpen size={14} /> CBSE / ICSE Board
+                  <BookOpen size={14} /> ICSE Board
                 </span>
               </div>
               <div className="school-card-bottom-content">
                 <span className="location-pill">TRICHY, TAMIL NADU</span>
-                <h3 className="school-card-vtitle" onClick={() => { if (onNavigate) onNavigate('english-school'); }} style={{ cursor: 'pointer' }}>Carmel’s English School (CBSE / ICSE)</h3>
+                <h3 className="school-card-vtitle" onClick={() => { if (onNavigate) onNavigate('english-school'); }} style={{ cursor: 'pointer' }}>Carmel’s English School ( ICSE)</h3>
                 <p className="school-card-vdesc">
-                  Delivering progressive English-medium education following CBSE & ICSE standards, designed to foster conceptual clarity, English fluency, digital smart interactive learning, and leadership skills.
+                  Delivering progressive English-medium education following  ICSE standards, designed to foster conceptual clarity, English fluency, digital smart interactive learning, and leadership skills.
                 </p>
                 <ul className="school-vhighlights-list">
-                  <li><CheckCircle2 size={16} className="list-icon" /> <strong>Board:</strong> CBSE & ICSE Curricula</li>
+                  <li><CheckCircle2 size={16} className="list-icon" /> <strong>Board:</strong> ICSE Curricula</li>
                   <li><CheckCircle2 size={16} className="list-icon" /> <strong>Classes Offered:</strong> Primary to Hr. Sec.</li>
                   <li><CheckCircle2 size={16} className="list-icon" /> <strong>Highlights:</strong> Smart Classrooms & Leadership</li>
                   <li><CheckCircle2 size={16} className="list-icon" /> <strong>Contact:</strong> 7868023528 / 7868023548</li>
